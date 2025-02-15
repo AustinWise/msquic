@@ -238,6 +238,9 @@ if (WIN32)
         set(QUIC_LOGGING_TYPE "etw")
         message(STATUS "Choosing etw as default logging type for platform")
     endif()
+
+    # Configure linker to only load from the system directory.
+    set (CMAKE_SHARED_LINKER_FLAGS "/DEPENDENTLOADFLAG:0x800")
 else()
 
     include(CheckSymbolExists)
